@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
-    "objectID": "posts/fish-types/fish-types.html",
-    "href": "posts/fish-types/fish-types.html",
-    "title": "Oceans AI",
-    "section": "",
-    "text": "Run this notebook with the fastbook mamba environment.\n\nfrom fastai.vision.widgets import *\nfrom fastai.vision.core import *\nfrom fastbook import *\n\n\nbtn_upload = widgets.FileUpload()\nbtn_run = widgets.Button(description='Classify')\nout_pl = widgets.Output()\nlbl_pred = widgets.Label()\n\nlearn_inf = load_learner('export.pkl')\n\ndef on_click_classify(change):\n    out_pl.clear_output()\n    img = PILImage.create(btn_upload.value[0].content.tobytes())\n    with out_pl: display(img.to_thumb(128,128))\n    pred, pred_idx, probs = learn_inf.predict(img)\n    lbl_pred.value = f'Prediction: {pred}; Probability: {probs[pred_idx]:.04f}'\n\nbtn_run.on_click(on_click_classify)\n\n\nVBox([widgets.Label('Select your fish!'),\n      btn_upload, btn_run, out_pl, lbl_pred])"
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "Lindy Rauchenstein",
@@ -60,13 +46,6 @@
     "href": "index.html",
     "title": "Exploring the Deep Blue with Deep Learning",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nJan 16, 2025\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJan 13, 2025\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code.\nIf this renders, then that means Github Actions works for publishing, and all I need to do is to push to the Github repo for everything to show up on my website."
+    "text": "No matching items"
   }
 ]

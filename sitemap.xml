@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://lindyrock.github.io/ai/posts/welcome/index.html</loc>
-    <lastmod>2025-02-03T20:34:55.304Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lindyrock.github.io/ai/posts/fish-types/fish-types.html</loc>
-    <lastmod>2025-02-03T20:34:55.303Z</lastmod>
-  </url>
-  <url>
     <loc>https://lindyrock.github.io/ai/about.html</loc>
-    <lastmod>2025-02-03T20:34:55.063Z</lastmod>
+    <lastmod>2025-02-05T23:27:37.468Z</lastmod>
   </url>
   <url>
     <loc>https://lindyrock.github.io/ai/index.html</loc>
-    <lastmod>2025-02-03T20:34:55.063Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lindyrock.github.io/ai/posts/post-with-code/index.html</loc>
-    <lastmod>2025-02-03T20:34:55.304Z</lastmod>
+    <lastmod>2025-02-05T23:27:37.468Z</lastmod>
   </url>
 </urlset>
