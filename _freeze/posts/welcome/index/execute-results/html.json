@@ -1,0 +1,12 @@
+{
+  "hash": "1fd1141f0b01ef696f84f05ba55a6a1e",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Quarto Crossrefs\"\nauthor: \"Lindy Rauchenstein\"\ndate: \"February 4, 2025\"\ntoc: true\nformat: \n  html:\n    code-fold: true\njupyter: python3\n---\n\n## Overview\n\nSee @fig-simple in @sec-plot for a demonstration of a simple plot. \n\nSee @eq-stddev to better understand standard deviation.\n\n## Plot {#sec-plot}\n\n::: {#cell-fig-simple .cell execution_count=1}\n``` {.python .cell-code}\nimport matplotlib.pyplot as plt\nplt.plot([1,23,2,4])\nplt.show()\n```\n\n::: {.cell-output .cell-output-display}\n![Simple Plot](index_files/figure-html/fig-simple-output-1.png){#fig-simple width=566 height=411}\n:::\n:::\n\n\n## Equation {#sec-equation}\n\n$$\ns = \\sqrt{\\frac{1}{N-1} \\sum_{i=1}^N (x_i - \\overline{x})^2}\n$$ {#eq-stddev}\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
