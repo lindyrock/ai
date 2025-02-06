@@ -11,7 +11,6 @@ format:
     code-tools: true
     ipywidgets: embed
     embed-resources: true
-draft: true
 ---
 Welcome, curious minds! Today, we’re going to build something cool: a simple fish classifier using Fastai and ipywidgets. Imagine you’re out fishing, and you catch something. Instead of scratching your head and wondering what it is, you can snap a photo, upload it here, and let our model tell you if it’s a reef fish, deepwater fish, or freshwater fish. Sound fun? Let’s dive in!
 
