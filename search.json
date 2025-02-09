@@ -1,5 +1,47 @@
 [
   {
+    "objectID": "posts/250203-fish-types/03_fish_types.html",
+    "href": "posts/250203-fish-types/03_fish_types.html",
+    "title": "Classifying deep sea, reef, and freshwater fishes with a simple classifier",
+    "section": "",
+    "text": "Today, we’re going to build something fast and easy, and check out a way to quickly compile and clean a dataset gathered from the Bing Image Search API. This fish classifier is built using Pytorch and FastAI, and reaches 93% accuracy using a very small dataset, only 380 images in total. This classifier can differentiate between fish that belong on coral reefs, freshwater, or in the deep ocean. Let’s dive in!"
+  },
+  {
+    "objectID": "posts/250203-fish-types/03_fish_types.html#pre-planning",
+    "href": "posts/250203-fish-types/03_fish_types.html#pre-planning",
+    "title": "Classifying deep sea, reef, and freshwater fishes with a simple classifier",
+    "section": "Pre-planning",
+    "text": "Pre-planning\nBefore we dive straight in to model building, let’s think like an engineer. What do we actually want to accomplish?\n\nDefine the objective – We want to build a model that can classify images into deep sea, reef, or freshwater fish. Not just the ones in our dataset, but any fish picture we throw at it.\nWhat actions can we take? – We can gather a dataset of fish images, clean it up so it’s not full of junk, and train a model to be as accurate as possible.\nWhat data do we have? – The internet is full of fish pictures! We’ll use Bing’s image search API to scrape some and build our own dataset."
+  },
+  {
+    "objectID": "posts/250203-fish-types/03_fish_types.html#gathering-a-dataset",
+    "href": "posts/250203-fish-types/03_fish_types.html#gathering-a-dataset",
+    "title": "Classifying deep sea, reef, and freshwater fishes with a simple classifier",
+    "section": "Gathering a Dataset",
+    "text": "Gathering a Dataset\nFirst, let’s grab some fish pictures from Bing.\n\nfrom fastai.vision.all import *\n\n\nkey = os.environ.get('AZURE_SEARCH_KEY', 'my_api_key')  # insert key value here\npath = Path(\"fish\")\n\nSEARCH_TERMS = [\"deep sea fish\", \"freshwater fish\", \"reef fish\"]\nfor o in SEARCH_TERMS:\n    dest = path/o\n    if not os.path.exists(dest):\n        os.makedirs(dest)\n        results = search_images_bing(key, o)\n        download_images(dest, urls=results.attrgot('contentUrl')) # dest is a path object \n\nGreat, now we have folders full of images. But the internet is messy— some of these are probably not fish, some might be mislabeled, and some might be totally useless. We need to clean up."
+  },
+  {
+    "objectID": "posts/250203-fish-types/03_fish_types.html#cleaning-the-dataset",
+    "href": "posts/250203-fish-types/03_fish_types.html#cleaning-the-dataset",
+    "title": "Classifying deep sea, reef, and freshwater fishes with a simple classifier",
+    "section": "Cleaning the dataset",
+    "text": "Cleaning the dataset\nInstead of going through them by hand (boring! slow!), we’ll train a quick classifier to help us sort out the bad ones. First we can remove any obviously broken files.\n\nfns = get_image_files(path)  # finds all image files in path and subpaths\nfailed = verify_images(fns)\nfailed.map(Path.unlink)\n\nThen train a quick model to help us clean the rest.\n\ndls = ImageDataLoaders.from_path_func(path, \n                                      get_image_files(path), \n                                      parent_label, \n                                      seed=42,\n                                      item_tfms=RandomResizedCrop(224, min_scale=0.5),\n                                      batch_tfms=aug_transforms())\n\n\ndls.valid.show_batch(max_n=5, nrows=1)\n\n\n\n\n\n\n\n\n\nlearn = vision_learner(dls, resnet18, metrics=accuracy)\n\n\n\n\n\nlearn.fine_tune(3)\n\n\n\n\n\n\n\n\nepoch\ntrain_loss\nvalid_loss\naccuracy\ntime\n\n\n\n\n0\n1.648003\n0.747909\n0.671053\n00:18\n\n\n\n\n\n\n\n\n\n\n\n\nepoch\ntrain_loss\nvalid_loss\naccuracy\ntime\n\n\n\n\n0\n0.796192\n0.540283\n0.776316\n00:16\n\n\n1\n0.682664\n0.470164\n0.815789\n00:16\n\n\n2\n0.550159\n0.427897\n0.828947\n00:16\n\n\n\n\n\nLet’s use this model to find the images it’s most confused about. Those images are likely misclassified or just bad images.\n\ninterp = ClassificationInterpretation.from_learner(learn)\ninterp.plot_confusion_matrix()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ninterp.plot_top_losses(10, nrows=4)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfrom fastai.vision.widgets import *\ncleaner = ImageClassifierCleaner(learn)\ncleaner\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis pulls up an interactive widget where we can delete the bad images or move them to the correct category.\n\n\n\nImageClassifierCleaner\n\n\n\nfor idx in cleaner.delete(): cleaner.fns[idx].unlink()\nfor idx,cat in cleaner.change(): shutil.move(str(cleaner.fns[idx]), path/cat)\n\nBoom! Dataset cleaned. Now we can train the real model."
+  },
+  {
+    "objectID": "posts/250203-fish-types/03_fish_types.html#experimenting-with-the-model",
+    "href": "posts/250203-fish-types/03_fish_types.html#experimenting-with-the-model",
+    "title": "Classifying deep sea, reef, and freshwater fishes with a simple classifier",
+    "section": "Experimenting with the model",
+    "text": "Experimenting with the model\nNow that we have a solid dataset, we can first build a baseline model and then experiment with hyperparameters.\n\nBaseline Model\n\n### Experiment 1: Baseline\ndls = ImageDataLoaders.from_path_func(path, \n                                      get_image_files(path), \n                                      parent_label, \n                                      seed=42,\n                                      item_tfms=RandomResizedCrop(224, min_scale=0.5),\n                                      batch_tfms=aug_transforms())\nlearn = vision_learner(dls, resnet18, metrics=accuracy)\nlearn.fine_tune(3)\n\n\n\n\n\n\n\n\nepoch\ntrain_loss\nvalid_loss\naccuracy\ntime\n\n\n\n\n0\n2.110603\n0.928864\n0.636364\n00:14\n\n\n\n\n\n\n\n\n\n\n\n\nepoch\ntrain_loss\nvalid_loss\naccuracy\ntime\n\n\n\n\n0\n0.876281\n0.530159\n0.779221\n00:14\n\n\n1\n0.707189\n0.526176\n0.831169\n00:12\n\n\n2\n0.625902\n0.444526\n0.857143\n00:12\n\n\n\n\n\nThis gives us a good starting point, but we can do better!\n\n\nLarger Image Size\nMaybe the model just needs to see more details in the fish.\n\n### Experiment 2: Larger images\ndls = ImageDataLoaders.from_path_func(path, \n                                      get_image_files(path), \n                                      parent_label, \n                                      seed=42,\n                                      item_tfms=RandomResizedCrop(500, min_scale=0.5),\n                                      batch_tfms=aug_transforms())\nlearn = vision_learner(dls, resnet18, metrics=accuracy)\nlearn.fine_tune(3)\n\n\n\n\n\n\n\n\nepoch\ntrain_loss\nvalid_loss\naccuracy\ntime\n\n\n\n\n0\n1.968835\n0.604990\n0.792208\n00:18\n\n\n\n\n\n\n\n\n\n\n\n\nepoch\ntrain_loss\nvalid_loss\naccuracy\ntime\n\n\n\n\n0\n0.743671\n0.430460\n0.818182\n00:19\n\n\n1\n0.598641\n0.391256\n0.857143\n00:18\n\n\n2\n0.471975\n0.371211\n0.857143\n00:18\n\n\n\n\n\nContinuing on, we can play other hyperparameters like with min_scale value, try some deeper or different model architectures, and finally train to overfitting to discover the best number of epochs to train for. Once we’re happy, we save our model for future use."
+  },
+  {
+    "objectID": "posts/250203-fish-types/03_fish_types.html#save-the-final-model",
+    "href": "posts/250203-fish-types/03_fish_types.html#save-the-final-model",
+    "title": "Classifying deep sea, reef, and freshwater fishes with a simple classifier",
+    "section": "Save the final model",
+    "text": "Save the final model\n\n### Final Model\ndls = ImageDataLoaders.from_path_func(path, \n                                      get_image_files(path), \n                                      parent_label, \n                                      seed=42,\n                                      item_tfms=RandomResizedCrop(500, min_scale=0.75),\n                                      batch_tfms=aug_transforms())\nlearn = vision_learner(dls, resnet18, metrics=accuracy)\nlearn.fine_tune(5)\n\n\n\n\n\n\n\n\n\n\n\nepoch\ntrain_loss\nvalid_loss\naccuracy\ntime\n\n\n\n\n0\n1.615644\n0.802557\n0.644737\n00:25\n\n\n\n\n\n\n\n\n\n\n\n\nepoch\ntrain_loss\nvalid_loss\naccuracy\ntime\n\n\n\n\n0\n0.800859\n0.560063\n0.736842\n00:21\n\n\n1\n0.667470\n0.369439\n0.828947\n00:21\n\n\n2\n0.520393\n0.288026\n0.907895\n00:22\n\n\n3\n0.423325\n0.282853\n0.921053\n00:20\n\n\n4\n0.363907\n0.296785\n0.934211\n00:20\n\n\n\n\n\n\nlearn.export()\n\nWe cleaned the dataset and gained significantly in accuracy, hitting 93% on a model trained on only 380 images. If we choose, we can gain rapidly in accuracy by spending a bit more time adding to and continuing to clean the dataset."
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "Lindy Rauchenstein",
@@ -46,6 +88,6 @@
     "href": "index.html",
     "title": "Exploring the Deep Blue with Deep Learning",
     "section": "",
-    "text": "No matching items"
+    "text": "Classifying deep sea, reef, and freshwater fishes with a simple classifier\n\n\n\n\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nFeb 4, 2025\n\n\nLindy Rauchenstein\n\n\n\n\n\n\nNo matching items"
   }
 ]

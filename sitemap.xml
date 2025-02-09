@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://lindyrock.github.io/ai/posts/250203-fish-types/03_fish_types.html</loc>
+    <lastmod>2025-02-09T21:08:51.128Z</lastmod>
+  </url>
+  <url>
     <loc>https://lindyrock.github.io/ai/about.html</loc>
-    <lastmod>2025-02-05T23:27:37.468Z</lastmod>
+    <lastmod>2025-02-09T21:08:51.122Z</lastmod>
   </url>
   <url>
     <loc>https://lindyrock.github.io/ai/index.html</loc>
-    <lastmod>2025-02-05T23:27:37.468Z</lastmod>
+    <lastmod>2025-02-09T21:08:51.122Z</lastmod>
   </url>
 </urlset>
