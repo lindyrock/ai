@@ -6,10 +6,10 @@ about:
   links:
     - icon: twitter
       text: Twitter
-      href: https://twitter.com
+      href: https://x.com/lindyrocky
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/lindyrauchenstein/
     - icon: github
       text: Github
       href: https://github.com

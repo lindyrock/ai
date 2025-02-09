@@ -1,0 +1,43 @@
+brand:
+  title: "Luminous"
+  logo: "logo.jpg"
+
+  colors:
+    primary: "#7BAFD4"    # Luminous Sky (Main Brand Color)
+    secondary: "#F3F4F6"  # Soft Pearl (Background)
+    accent: "#F8A07E"     # Sunlit Coral (Highlight)
+    highlight: "#9FE2BF"  # Radiant Mint (Additional Highlight)
+    navbar: "#7BAFD4"
+    navbar-text: "#FFFFFF"
+    navbar-hover: "#F8A07E"
+    footer: "#405D78"
+    footer-text: "#FFFFFF"
+    link: "#405D78"
+    link-hover: "#F8A07E"
+  
+  typography:
+    heading: "Playfair Display, serif"
+    body: "Inter, sans-serif"
+    code: "Source Code Pro, monospace"
+
+  navbar:
+    background: "#7BAFD4"
+    foreground: "#FFFFFF"
+    hover: "#F8A07E"
+
+  footer:
+    background: "#405D78"
+    foreground: "#FFFFFF"
+
+  callout:
+    note: "#7BAFD4"
+    warning: "#F8A07E"
+    important: "#9FE2BF"
+
+format:
+  html:
+    theme: [default, custom.scss] # Optional: Custom styles
+    css: "styles.css"
+    toc: true
+    toc-depth: 3
+    number-sections: true
