@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://lindyrock.github.io/ai/posts/250209-serving-model/fish-interpreter.html</loc>
-    <lastmod>2025-02-10T00:16:21.695Z</lastmod>
+    <loc>https://lindyrock.github.io/ai/index.html</loc>
+    <lastmod>2025-02-11T19:11:27.491Z</lastmod>
   </url>
   <url>
-    <loc>https://lindyrock.github.io/ai/index.html</loc>
-    <lastmod>2025-02-10T00:16:21.445Z</lastmod>
+    <loc>https://lindyrock.github.io/ai/posts/250211-cifar10/04_classification.html</loc>
+    <lastmod>2025-02-11T19:11:27.501Z</lastmod>
   </url>
   <url>
     <loc>https://lindyrock.github.io/ai/about.html</loc>
-    <lastmod>2025-02-10T00:16:21.444Z</lastmod>
+    <lastmod>2025-02-11T19:11:27.491Z</lastmod>
   </url>
   <url>
     <loc>https://lindyrock.github.io/ai/posts/250203-fish-types/03_fish_types.html</loc>
-    <lastmod>2025-02-10T00:16:21.451Z</lastmod>
+    <lastmod>2025-02-11T19:11:27.497Z</lastmod>
   </url>
 </urlset>
