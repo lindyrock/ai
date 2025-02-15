@@ -2,18 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lindyrock.github.io/ai/index.html</loc>
-    <lastmod>2025-02-11T19:11:27.491Z</lastmod>
+    <lastmod>2025-02-15T13:59:47.964Z</lastmod>
   </url>
   <url>
-    <loc>https://lindyrock.github.io/ai/posts/250211-cifar10/04_classification.html</loc>
-    <lastmod>2025-02-11T19:11:27.501Z</lastmod>
+    <loc>https://lindyrock.github.io/ai/posts/250213-cifar10-sota/05_sota_classification.html</loc>
+    <lastmod>2025-02-15T13:59:47.975Z</lastmod>
   </url>
   <url>
     <loc>https://lindyrock.github.io/ai/about.html</loc>
-    <lastmod>2025-02-11T19:11:27.491Z</lastmod>
+    <lastmod>2025-02-15T13:59:47.964Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lindyrock.github.io/ai/posts/250211-cifar10/04_classification.html</loc>
+    <lastmod>2025-02-15T13:59:47.974Z</lastmod>
   </url>
   <url>
     <loc>https://lindyrock.github.io/ai/posts/250203-fish-types/03_fish_types.html</loc>
-    <lastmod>2025-02-11T19:11:27.497Z</lastmod>
+    <lastmod>2025-02-15T13:59:47.971Z</lastmod>
   </url>
 </urlset>

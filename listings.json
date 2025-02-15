@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/250213-cifar10-sota/05_sota_classification.html",
       "/posts/250211-cifar10/04_classification.html",
       "/posts/250203-fish-types/03_fish_types.html"
     ]
