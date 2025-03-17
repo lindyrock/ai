@@ -2,6 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/250317-nlp-agnews/08_nlp.html",
+      "/posts/250317-adults-tabular-sota/07_tabular.html",
       "/posts/250213-cifar10-sota/05_sota_classification.html",
       "/posts/250211-cifar10/04_classification.html",
       "/posts/250203-fish-types/03_fish_types.html"

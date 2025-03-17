@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://lindyrock.github.io/ai/index.html</loc>
-    <lastmod>2025-02-15T13:59:47.964Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lindyrock.github.io/ai/posts/250213-cifar10-sota/05_sota_classification.html</loc>
-    <lastmod>2025-02-15T13:59:47.975Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lindyrock.github.io/ai/about.html</loc>
-    <lastmod>2025-02-15T13:59:47.964Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lindyrock.github.io/ai/posts/250211-cifar10/04_classification.html</loc>
-    <lastmod>2025-02-15T13:59:47.974Z</lastmod>
+    <loc>https://lindyrock.github.io/ai/posts/250317-nlp-agnews/08_nlp.html</loc>
+    <lastmod>2025-03-17T21:53:15.072Z</lastmod>
   </url>
   <url>
     <loc>https://lindyrock.github.io/ai/posts/250203-fish-types/03_fish_types.html</loc>
-    <lastmod>2025-02-15T13:59:47.971Z</lastmod>
+    <lastmod>2025-03-17T21:53:15.054Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lindyrock.github.io/ai/posts/250211-cifar10/04_classification.html</loc>
+    <lastmod>2025-03-17T21:53:15.058Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lindyrock.github.io/ai/index.html</loc>
+    <lastmod>2025-03-17T21:53:15.048Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lindyrock.github.io/ai/about.html</loc>
+    <lastmod>2025-03-17T21:53:15.048Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lindyrock.github.io/ai/posts/250317-adults-tabular-sota/07_tabular.html</loc>
+    <lastmod>2025-03-17T21:53:15.071Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lindyrock.github.io/ai/posts/250213-cifar10-sota/05_sota_classification.html</loc>
+    <lastmod>2025-03-17T21:53:15.059Z</lastmod>
   </url>
 </urlset>
