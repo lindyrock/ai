@@ -1,5 +1,5 @@
 ---
-title: "Lindy Rauchenstein"
+title: "About"
 image: profile.jpg
 about:
   template: jolla
@@ -20,6 +20,10 @@ about:
 
 Welcome to my blog where I explore the intersection of **Deep Learning** and **Ocean Science**. As an AI enthusiast, my goal is to apply cutting-edge machine learning techniques to tackle some of the most pressing challenges related to ocean conservation, marine research, and underwater exploration.
 
+## Why the Ocean?
+
+The ocean covers more than 70% of the Earth's surface, yet much of it remains unexplored and understudied. With the help of AI and machine learning, we can unlock insights that help protect and preserve our oceans, marine life, and ecosystems for future generations. From predicting climate change impacts to monitoring biodiversity, the ocean is an ideal place for applying AI's transformative power.
+
 ## About Me
 
 I'm passionate about harnessing the power of AI to solve real-world problems. Through this blog, I showcase some deep learning projects that focus on the ocean, from predicting marine life populations to detecting underwater anomalies using neural networks.
@@ -39,10 +43,6 @@ On this blog, you’ll find:
 - **Ocean Surface Temperature Prediction**: A deep learning model to predict temperature patterns across global oceans.
 - **Whale Detection**: Leveraging audio recognition to identify and track whale sounds from oceanic datasets.
 - **Coral Reef Health Monitoring**: Anomaly detection using deep learning to monitor the health of coral reefs through satellite imagery.
-
-## Why the Ocean?
-
-The ocean covers more than 70% of the Earth's surface, yet much of it remains unexplored and understudied. With the help of AI and machine learning, we can unlock insights that help protect and preserve our oceans, marine life, and ecosystems for future generations. From predicting climate change impacts to monitoring biodiversity, the ocean is an ideal place for applying AI's transformative power.
 
 ## Stay Updated
 
