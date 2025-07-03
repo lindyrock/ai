@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/250703-coral-reef-threats/threats-to-coral-reefs.html",
       "/posts/250317-nlp-agnews/08_nlp.html",
       "/posts/250317-adults-tabular-sota/07_tabular.html",
       "/posts/250213-cifar10-sota/05_sota_classification.html",
